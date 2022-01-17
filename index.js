@@ -1,9 +1,34 @@
 const BUTTON_DEFINITIONS = {
-  0: { name: "left", clickCount: 0, previousClickTime: -999 },
-  1: { name: "middle", clickCount: 0, previousClickTime: -999 },
-  2: { name: "right", clickCount: 0, previousClickTime: -999 },
-  3: { name: "browser back", clickCount: 0, previousClickTime: -999 },
-  4: { name: "browser forward", clickCount: 0, previousClickTime: -999 },
+  0: {
+    name: "left",
+    clickCount: 0,
+    doubleClickCount: 0,
+    previousClickTime: -999,
+  },
+  1: {
+    name: "middle",
+    clickCount: 0,
+    doubleClickCount: 0,
+    previousClickTime: -999,
+  },
+  2: {
+    name: "right",
+    clickCount: 0,
+    doubleClickCount: 0,
+    previousClickTime: -999,
+  },
+  3: {
+    name: "browser back",
+    clickCount: 0,
+    doubleClickCount: 0,
+    previousClickTime: -999,
+  },
+  4: {
+    name: "browser forward",
+    clickCount: 0,
+    doubleClickCount: 0,
+    previousClickTime: -999,
+  },
 };
 const COMPARISON_TIME = 0.08;
 var totalClicks = 0;
@@ -12,10 +37,8 @@ var totalDoubleClicks = 0;
 function onMouseButtonClick(event) {
   event.preventDefault();
   var pressedButton = getButtonDefinition(event);
-  if (pressedButton != undefined) {
-    checkDoubleClick(pressedButton);
-    highlightButtonAnimation(pressedButton);
-  }
+  checkDoubleClick(pressedButton);
+  highlightButtonAnimation(pressedButton);
 }
 
 var getButtonDefinition = function (e) {
@@ -23,6 +46,15 @@ var getButtonDefinition = function (e) {
   var btnCode = null;
   if ("object" === typeof e) {
     btnCode = e.button;
+  }
+
+  if (BUTTON_DEFINITIONS[btnCode] == undefined) {
+    BUTTON_DEFINITIONS[btnCode] = {
+      name: `Button ${btnCode}`,
+      clickCount: 0,
+      doubleClickCount: 0,
+      previousClickTime: -999,
+    };
   }
 
   return BUTTON_DEFINITIONS[btnCode];
