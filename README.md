@@ -10,7 +10,7 @@ I have created this utility to test additional mouse buttons other than primary,
 
 Clone the repository using the following the command:
 
-    git clone https://github.com/suryanshsugandhi/double-click-detector
+git clone https://github.com/suryanshsugandhi/double-click-detector
 
 Open the HTML page in any of the supported browsers (preferably Chrome version 74+) and start clicking on the test area. If you suspect a particular mouse button is misbehaving, repeatedly click the test area until it turns red.
 
@@ -25,3 +25,16 @@ You can also use Microsoft Edge, Mozilla Firefox, or Brave for the test but they
 Chrome on the other hand supports the remapping of buttons 4, 5, 6, and 7 which might be used for browser-back, browser-forward, and other browser actions earlier.
 
 I hope that you find this utility helpful.
+
+## Pro tip
+
+1. Try updating the the driver software (which you would have already tried, of course)
+
+2. If the problem is still not solved try this
+   1. Press the right click button and hold-it, turn the mouse off and on.
+   2. Leave the right mouse button pressed while clicking on the left click button continuously for a few times.
+   3. Release the right click button and turn the mouse off again.
+   4. Click and hold the right mouse button while the mouse is turned off.
+   5. Turn the mouse on and finally release the right mouse button.
+
+I found this in the comments of a random article. This always works for my Logitech G304. It seems to be an issue with static buildup in modern mice using a particular membrane type.
