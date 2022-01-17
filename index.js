@@ -71,10 +71,8 @@ function checkDoubleClick(pressedButton) {
     var clickableAreaText = document.getElementById("clickable-area-text");
     doubleClickCount.textContent = totalDoubleClicks;
     clickableArea.style.background = "red";
-    clickableAreaText.textContent = generateErrorMessage(
-      pressedButton.name,
-      pressedButton.clickCount
-    );
+    var error = generateErrorMessage(pressedButton);
+    clickableAreaText.textContent = error.message;
     console.log("Double clicked " + pressedButton.name);
   }
   pressedButton.previousClickTime = clickTime;
@@ -91,6 +89,9 @@ function microTime(get_as_float = true) {
   return get_as_float ? now : Math.round((now - s) * 1000) / 1000 + " " + s;
 }
 
-function generateErrorMessage(buttonName, numberOfClicks) {
-  return `Oops! Your mouse double clicked the ${buttonName} button in ${numberOfClicks} clicks!!`;
+function generateErrorMessage(pressedButton) {
+  var doubleClickFrequency =
+    pressedButton.doubleClickCount / pressedButton.clickCount;
+  var message = `Oops! Your mouse double clicked the ${pressedButton.name} button!!`;
+  return { doubleClickFrequency, message };
 }
