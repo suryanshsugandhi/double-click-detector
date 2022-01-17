@@ -1,0 +1,14 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+#clickable-area {
+  background-color: rgb(63, 61, 61);
+  color: aliceblue;
+  height: 50vh;
+  font-size: 48px;
+  padding: 0;
+  margin: 0;
+}
